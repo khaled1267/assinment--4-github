@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+   
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        *{
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+
+<body  class="bg-">
+    <header class="w-[80%] mx-auto">
+            <h1 class="text-[32px] w-[80%]  ">Job Application Tracker</h1>
+
+      
+        <div class="grid grid-cols-3 gap-8">
+            <div class="bg-[#FFFFFF] p-5 rounded shadow">
+                <p>Total</p>
+                <p id="total">0</p>
+            </div>
+
+            <div class="bg-[#FFFFFF] p-5 rounded shadow">
+                <p>Thrive</p>
+                <p id="thrivingCount" class="font-bold text-[24px] text-[#10B981]">0</p>
+            </div>
+
+            <div class="bg-[#FFFFFF] p-5 rounded shadow">
+                <p>Struggling</p>
+                <p id="strugglingCount" class="font-bold text-[24px] text-[#EF4444]">0</p>
+            </div>
+        </div>
+    </header>
+
+
+    <hr class="my-5">
+    <div class="flex justify-between items-center mb-6 w-[80%] mx-auto">
+            <div><h1 class="font-semibold text-2xl">Available Jobs</h1></div>
+            <div class="text-[#64748B]">8 Jobs</div>
+        </div>
+    <main class="w-[80%] mx-auto">
+        <div class="mb-6">
+            <button onclick="toggleStyle('all-filter-btn')"  class="bg-blue-700 text-white px-5 py-2" id="all-filter-btn">All</button>
+            <button onclick="toggleStyle('thriving-filter-btn')"  class="bg-gray-300 px-5 py-2" id="thriving-filter-btn">Thriving</button>
+            <button onclick="toggleStyle('struggling-filter-btn')"  class="bg-gray-300 px-5 py-2" id="struggling-filter-btn">Struggling</button>
+        </div>
+
+        <!-- Filtered card -->
+
+        <section id="filtered-section" class="hidden">
+
+        </section>
+
+        <section id="allCards" class="space-y-6">
+
+            <!-- card 1 -->
+            <div class="card flex justify-between p-8 bg-[#FFFFFF] rounded-2xl shadow transition-all duration-300 hover:translate-x-2 hover:-translate-y-2 hover:shadow-lg my-[20px] flex justify-between pr-5">
+                <!-- main part 1 -->
+                <div class="space-y-6">
+                    <!-- part 1 -->
+                    <div>
+                        <p class="plantName font-semibold text-[17px]">Mobile First Corp</p>
+                        <p class="latinName text-[17px] text-[#64748B]">React Native Developer</p>
+                    </div>
+
+                    <!-- part 2 -->
+                    <div class="flex gap-2">
+                        <p class="light text-[17px] text-[#64748B]">Remote • Full-time • $130,000 - $175,000</p>
+                        <p class="water"></p>
+                    </div>
+                    <!-- part 3 -->
+                     <p class="status">Not applicable</p>
+                     <p class="notes text-[17px] text-[#64748B]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+
+                     <div class="flex gap-5">
+                        <button class="thriving-btn bg-green-200 px-4 py-2">Interview</button>
+                        <button class="struggling-btn bg-red-200 px-4 py-2">Rejected</button>
+                     </div>
+                </div>
+
+                <!-- main part 2 -->
+                <div>
+                    <button class="btn-delete text-gray-500 hover:text-red-500"><i class="fa-solid fa-trash-can text-lg"></i></button>
+                </div>
+            </div>
+
+               <!-- card 2 -->
+            <div class="card flex justify-between border p-8">
+                <!-- main part 1 -->
+                <div class="space-y-6">
+                    <!-- part 1 -->
+                    <div>
+                        <p class="plantName font-semibold text-[17px]">WebFlow Agency</p>
+                        <p class="latinName text-[17px] text-[#64748B]">Web Designer & Developer</p>
+                    </div>
+
+                    <!-- part 2 -->
+                    <div class="flex gap-2">
+                        <p class="light text-[17px] text-[#64748B]">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+                        <p class="water"></p>
+                    </div>
+                    <!-- part 3 -->
+                     <p class=" btn">Not applicable</p>
+                     <p class="notes text-[17px] text-[#64748B]">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+
+                     <div class="flex gap-5">
+                        <button class="thriving-btn bg-green-200 px-4 py-2">Interview</button>
+                        <button class="struggling-btn bg-red-200 px-4 py-2">Rejected</button>
+                     </div>
+                </div>
+
+                <!-- main part 2 -->
+                <div>
+                    <button class="btn-delete text-gray-500 hover:text-red-500"><i class="fa-solid fa-trash-can text-lg"></i></button>
+                </div>
+            </div>
+               <!-- card 3 -->
+            <div class="card flex justify-between border p-8">
+                <!-- main part 1 -->
+                <div class="space-y-6">
+                    <!-- part 1 -->
+                    <div>
+                        <p class="plantName font-semibold text-[17px]">Mobile First Corp</p>
+                        <p class="latinName text-[17px] text-[#64748B]">React Native Developer</p>
+                    </div>
+
+                    <!-- part 2 -->
+                    <div class="flex gap-2">
+                        <p class="light text-[17px] text-[#64748B]">Remote • Full-time • $130,000 - $175,000</p>
+                        <p class="water"></p>
+                    </div>
+                    <!-- part 3 -->
+                     <p class="status">Not applicable</p>
+                     <p class="notes text-[17px] text-[#64748B]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+
+                     <div class="flex gap-5">
+                        <button class="thriving-btn bg-green-200 px-4 py-2">Interview</button>
+                        <button class="struggling-btn bg-red-200 px-4 py-2">Rejected</button>
+                     </div>
+                </div>
+
+                <!-- main part 2 -->
+                <div>
+                    <button class="btn-delete text-gray-500 hover:text-red-500"><i class="fa-solid fa-trash-can text-lg"></i></button>
+                </div>
+            </div>
+
+
+
+            <!-- card 4  -->
+             <div class="card flex justify-between border p-8">
+                <!-- main part 1 -->
+                <div class="space-y-6">
+                    <!-- part 1 -->
+                    <div>
+                        <p class="plantName text-4xl">Plant Name 3</p>
+                        <p class="latinName">Latin Name</p>
+                    </div>
+
+                    <!-- part 2 -->
+                    <div class="flex gap-2">
+                        <p class="light bg-gray-200 px-5">Bright Indicate</p>
+                        <p class="water bg-gray-200 px-5">weekly</p>
+                    </div>
+                    <!-- part 3 -->
+                     <p class="status">Not applicable</p>
+                     <p class="notes">New leaf unfurling by the east window.</p>
+
+                     <div class="flex gap-5">
+                        <button class="thriving-btn bg-green-200 px-4 py-2">Thrive</button>
+                        <button class="struggling-btn bg-red-200 px-4 py-2">Struggle</button>
+                     </div>
+                </div>
+
+                <!-- main part 2 -->
+                <div>
+                    <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">Delete</button>
+                </div>
+            </div>
+            <!-- card 5  -->
+             <div class="card flex justify-between border p-8">
+                <!-- main part 1 -->
+                <div class="space-y-6">
+                    <!-- part 1 -->
+                    <div>
+                        <p class="plantName text-4xl">Plant Name 3</p>
+                        <p class="latinName">Latin Name</p>
+                    </div>
+
+                    <!-- part 2 -->
+                    <div class="flex gap-2">
+                        <p class="light bg-gray-200 px-5">Bright Indicate</p>
+                        <p class="water bg-gray-200 px-5">weekly</p>
+                    </div>
+                    <!-- part 3 -->
+                     <p class="status">Not applicable</p>
+                     <p class="notes">New leaf unfurling by the east window.</p>
+
+                     <div class="flex gap-5">
+                        <button class="thriving-btn bg-green-200 px-4 py-2">Thrive</button>
+                        <button class="struggling-btn bg-red-200 px-4 py-2">Struggle</button>
+                     </div>
+                </div>
+
+                <!-- main part 2 -->
+                <div>
+                    <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">Delete</button>
+                </div>
+            </div>
+            <!-- card 6  -->
+             <div class="card flex justify-between border p-8">
+                <!-- main part 1 -->
+                <div class="space-y-6">
+                    <!-- part 1 -->
+                    <div>
+                        <p class="plantName text-4xl">Plant Name 3</p>
+                        <p class="latinName">Latin Name</p>
+                    </div>
+
+                    <!-- part 2 -->
+                    <div class="flex gap-2">
+                        <p class="light bg-gray-200 px-5">Bright Indicate</p>
+                        <p class="water bg-gray-200 px-5">weekly</p>
+                    </div>
+                    <!-- part 3 -->
+                     <p class="status">Not applicable</p>
+                     <p class="notes">New leaf unfurling by the east window.</p>
+
+                     <div class="flex gap-5">
+                        <button class="thriving-btn bg-green-200 px-4 py-2">Thrive</button>
+                        <button class="struggling-btn bg-red-200 px-4 py-2">Struggle</button>
+                     </div>
+                </div>
+
+                <!-- main part 2 -->
+                <div>
+                    <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">Delete</button>
+                </div>
+            </div>
+            <!-- card 7  -->
+             <div class="card flex justify-between border p-8">
+                <!-- main part 1 -->
+                <div class="space-y-6">
+                    <!-- part 1 -->
+                    <div>
+                        <p class="plantName text-4xl">Plant Name 3</p>
+                        <p class="latinName">Latin Name</p>
+                    </div>
+
+                    <!-- part 2 -->
+                    <div class="flex gap-2">
+                        <p class="light bg-gray-200 px-5">Bright Indicate</p>
+                        <p class="water bg-gray-200 px-5">weekly</p>
+                    </div>
+                    <!-- part 3 -->
+                     <p class="status">Not applicable</p>
+                     <p class="notes">New leaf unfurling by the east window.</p>
+
+                     <div class="flex gap-5">
+                        <button class="thriving-btn bg-green-200 px-4 py-2">Thrive</button>
+                        <button class="struggling-btn bg-red-200 px-4 py-2">Struggle</button>
+                     </div>
+                </div>
+
+                <!-- main part 2 -->
+                <div>
+                    <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">Delete</button>
+                </div>
+            </div>
+            <!-- card 8  -->
+             
+
+        </section>
+    </main>
+
+    <script src="./funtion-Dom.js"></script>
+</body>
+
+</html>
