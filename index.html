@@ -22,40 +22,40 @@
         }
     </style>
 
-<body  class="bg-">
-    <header class="w-[80%] mx-auto">
-            <h1 class="text-[32px] w-[80%]  ">Job Application Tracker</h1>
+<body  class="bg-base-300">
+    <header class="w-[80%] mx-auto ">
+            <h1 class="  text-[32px] w-[80%]  ">Job Application Tracker</h1>
 
       
-        <div class="grid grid-cols-3 gap-8">
+        <div class="grid grid-cols-3  gap-5">
             <div class="bg-[#FFFFFF] p-5 rounded shadow">
                 <p>Total</p>
-                <p id="total">0</p>
+                <p id="total" class="font-bold text-[24px] ">0</p>
             </div>
 
             <div class="bg-[#FFFFFF] p-5 rounded shadow">
-                <p>Thrive</p>
+                <p>Interview</p>
                 <p id="thrivingCount" class="font-bold text-[24px] text-[#10B981]">0</p>
             </div>
 
             <div class="bg-[#FFFFFF] p-5 rounded shadow">
-                <p>Struggling</p>
+                <p>Rejected</p>
                 <p id="strugglingCount" class="font-bold text-[24px] text-[#EF4444]">0</p>
             </div>
         </div>
     </header>
 
 
-    <hr class="my-5">
+    <hr class=" my-6 text-[#E6E7E9]">
     <div class="flex justify-between items-center mb-6 w-[80%] mx-auto">
-            <div><h1 class="font-semibold text-2xl">Available Jobs</h1></div>
-            <div class="text-[#64748B]">8 Jobs</div>
+            <div><h1 class=" font-semibold text-2xl">Available Jobs</h1></div>
+            <div id="available" class=" text-[#64748B]">8 Jobs</div>
         </div>
     <main class="w-[80%] mx-auto">
-        <div class="mb-6">
-            <button onclick="toggleStyle('all-filter-btn')"  class="bg-blue-700 text-white px-5 py-2" id="all-filter-btn">All</button>
-            <button onclick="toggleStyle('thriving-filter-btn')"  class="bg-gray-300 px-5 py-2" id="thriving-filter-btn">Thriving</button>
-            <button onclick="toggleStyle('struggling-filter-btn')"  class="bg-gray-300 px-5 py-2" id="struggling-filter-btn">Struggling</button>
+        <div class="mb-6 ">
+            <button onclick="toggleStyle('all-filter-btn')"  class="bg-blue-700 text-white px-5 py-2 rounded-3xl" id="all-filter-btn">All</button>
+            <button onclick="toggleStyle('thriving-filter-btn')"  class="bg-gray-300 px-5 py-2 rounded-3xl" id="thriving-filter-btn">Interview</button>
+            <button onclick="toggleStyle('struggling-filter-btn')"  class="bg-gray-300 px-5 py-2 rounded-3xl" id="struggling-filter-btn">Rejected</button>
         </div>
 
         <!-- Filtered card -->
@@ -67,7 +67,7 @@
         <section id="allCards" class="space-y-6">
 
             <!-- card 1 -->
-            <div class="card flex justify-between p-8 bg-[#FFFFFF] rounded-2xl shadow transition-all duration-300 hover:translate-x-2 hover:-translate-y-2 hover:shadow-lg my-[20px] flex justify-between pr-5">
+            <div class="card flex justify-between p-8 bg-[#FFFFFF] rounded-2xl shadow transition-all duration-300 hover:translate-x-2 hover:-translate-y-2 hover:shadow-lg my-[20px] flex justify-between pr-5 bg-[#FFFFFF] rounded-2xl shadow transition-all duration-300 hover:translate-x-2 hover:-translate-y-2 hover:shadow-lg my-[20px] flex justify-between pr-5">
                 <!-- main part 1 -->
                 <div class="space-y-6">
                     <!-- part 1 -->
@@ -82,23 +82,23 @@
                         <p class="water"></p>
                     </div>
                     <!-- part 3 -->
-                     <p class="status">Not applicable</p>
+                     <p class="farhana  btn btn-soft btn-sm">Not applied</p>
                      <p class="notes text-[17px] text-[#64748B]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
 
                      <div class="flex gap-5">
-                        <button class="thriving-btn bg-green-200 px-4 py-2">Interview</button>
-                        <button class="struggling-btn bg-red-200 px-4 py-2">Rejected</button>
+                        <button class="thriving-btn btn btn-outline btn-success btn-sm">Interview</button>
+                        <button class="struggling-btn btn btn-outline btn-error btn-sm ml-2">Rejected</button>
                      </div>
                 </div>
 
                 <!-- main part 2 -->
-                <div>
+                <div class="absolute right-3">
                     <button class="btn-delete text-gray-500 hover:text-red-500"><i class="fa-solid fa-trash-can text-lg"></i></button>
                 </div>
             </div>
 
                <!-- card 2 -->
-            <div class="card flex justify-between border p-8">
+            <div class="card flex justify-between  p-8 bg-[#FFFFFF] rounded-2xl shadow transition-all duration-300 hover:translate-x-2 hover:-translate-y-2 hover:shadow-lg my-[20px] flex justify-between pr-5">
                 <!-- main part 1 -->
                 <div class="space-y-6">
                     <!-- part 1 -->
@@ -113,177 +113,214 @@
                         <p class="water"></p>
                     </div>
                     <!-- part 3 -->
-                     <p class=" btn">Not applicable</p>
+                     <p class="farhana  btn btn-soft btn-smbtn">Not applied</p>
                      <p class="notes text-[17px] text-[#64748B]">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
 
                      <div class="flex gap-5">
-                        <button class="thriving-btn bg-green-200 px-4 py-2">Interview</button>
-                        <button class="struggling-btn bg-red-200 px-4 py-2">Rejected</button>
+                        <button class="thriving-btn btn btn-outline btn-success btn-sm">Interview</button>
+                        <button class="struggling-btn btn btn-outline btn-error btn-sm ml-2">Rejected</button>
                      </div>
                 </div>
 
                 <!-- main part 2 -->
-                <div>
+                <div class="absolute right-3">
                     <button class="btn-delete text-gray-500 hover:text-red-500"><i class="fa-solid fa-trash-can text-lg"></i></button>
                 </div>
             </div>
                <!-- card 3 -->
-            <div class="card flex justify-between border p-8">
+            <div class="card flex justify-between  p-8 bg-[#FFFFFF] rounded-2xl shadow transition-all duration-300 hover:translate-x-2 hover:-translate-y-2 hover:shadow-lg my-[20px] flex justify-between pr-5">
                 <!-- main part 1 -->
                 <div class="space-y-6">
                     <!-- part 1 -->
                     <div>
-                        <p class="plantName font-semibold text-[17px]">Mobile First Corp</p>
-                        <p class="latinName text-[17px] text-[#64748B]">React Native Developer</p>
+                        <p class="plantName font-semibold text-[17px]">CloudFirst Inc</p>
+                        <p class="latinName text-[17px] text-[#64748B]">Backend Developer</p>
                     </div>
 
                     <!-- part 2 -->
                     <div class="flex gap-2">
-                        <p class="light text-[17px] text-[#64748B]">Remote • Full-time • $130,000 - $175,000</p>
+                        <p class="light text-[17px] text-[#64748B]">Seattle, WA • Full-time • $140,000 - $190,000</p>
                         <p class="water"></p>
                     </div>
                     <!-- part 3 -->
-                     <p class="status">Not applicable</p>
-                     <p class="notes text-[17px] text-[#64748B]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                     <p class="farhana btn btn-soft btn-smbtn">Not Applied</p>
+                     <p class="notes text-[17px] text-[#64748B]">Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p>
 
                      <div class="flex gap-5">
-                        <button class="thriving-btn bg-green-200 px-4 py-2">Interview</button>
-                        <button class="struggling-btn bg-red-200 px-4 py-2">Rejected</button>
+                        <button class="thriving-btn btn btn-outline btn-success btn-sm">Interview</button>
+                        <button class="struggling-btn btn btn-outline btn-error btn-sm ml-2">Rejected</button>
                      </div>
                 </div>
 
                 <!-- main part 2 -->
-                <div>
-                    <button class="btn-delete text-gray-500 hover:text-red-500"><i class="fa-solid fa-trash-can text-lg"></i></button>
+                <div class="absolute right-3">
+                    <button class="btn-delete text-gray-500 hover:text-red-500 "><i class="fa-solid fa-trash-can text-lg"></i></button>
                 </div>
             </div>
 
 
 
             <!-- card 4  -->
-             <div class="card flex justify-between border p-8">
+                <div class="card flex justify-between  p-8 bg-[#FFFFFF] rounded-2xl shadow transition-all duration-300 hover:translate-x-2 hover:-translate-y-2 hover:shadow-lg my-[20px] flex justify-between pr-5">
                 <!-- main part 1 -->
                 <div class="space-y-6">
                     <!-- part 1 -->
                     <div>
-                        <p class="plantName text-4xl">Plant Name 3</p>
-                        <p class="latinName">Latin Name</p>
+                        <p class="plantName font-semibold text-[17px]">DataViz Solutions</p>
+                        <p class="latinName text-[17px] text-[#64748B]">Data Visualization Specialist</p>
                     </div>
 
                     <!-- part 2 -->
                     <div class="flex gap-2">
-                        <p class="light bg-gray-200 px-5">Bright Indicate</p>
-                        <p class="water bg-gray-200 px-5">weekly</p>
+                        <p class="light text-[17px] text-[#64748B]">Boston, MA • Full-time • $125,000 - $165,000</p>
+                        <p class="water"></p>
                     </div>
                     <!-- part 3 -->
-                     <p class="status">Not applicable</p>
-                     <p class="notes">New leaf unfurling by the east window.</p>
+                     <p class="farhana btn btn-soft btn-smbtn">Not Applied</p>
+                     <p class="notes text-[17px] text-[#64748B]">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking</p>
 
                      <div class="flex gap-5">
-                        <button class="thriving-btn bg-green-200 px-4 py-2">Thrive</button>
-                        <button class="struggling-btn bg-red-200 px-4 py-2">Struggle</button>
+                        <button class="thriving-btn btn btn-outline btn-success btn-sm">Interview</button>
+                        <button class="struggling-btn btn btn-outline btn-error btn-sm ml-2">Rejected</button>
                      </div>
                 </div>
 
                 <!-- main part 2 -->
-                <div>
-                    <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">Delete</button>
+                <div class="absolute right-3">
+                    <button class="btn-delete text-gray-500 hover:text-red-500 "><i class="fa-solid fa-trash-can text-lg"></i></button>
                 </div>
             </div>
+
             <!-- card 5  -->
-             <div class="card flex justify-between border p-8">
+             <div class="card flex justify-between  p-8 bg-[#FFFFFF] rounded-2xl shadow transition-all duration-300 hover:translate-x-2 hover:-translate-y-2 hover:shadow-lg my-[20px] flex justify-between pr-5">
                 <!-- main part 1 -->
                 <div class="space-y-6">
                     <!-- part 1 -->
                     <div>
-                        <p class="plantName text-4xl">Plant Name 3</p>
-                        <p class="latinName">Latin Name</p>
+                        <p class="plantName font-semibold text-[17px]">Innovation Labs</p>
+                        <p class="latinName text-[17px] text-[#64748B]">UI/UX Engineer</p>
                     </div>
 
                     <!-- part 2 -->
                     <div class="flex gap-2">
-                        <p class="light bg-gray-200 px-5">Bright Indicate</p>
-                        <p class="water bg-gray-200 px-5">weekly</p>
+                        <p class="light text-[17px] text-[#64748B]">Austin, TX • Full-time • $110,000 - $150,000</p>
+                        <p class="water"></p>
                     </div>
                     <!-- part 3 -->
-                     <p class="status">Not applicable</p>
-                     <p class="notes">New leaf unfurling by the east window.</p>
+                     <p class="farhana btn btn-soft btn-smbtn">Not Applied</p>
+                     <p class="notes text-[17px] text-[#64748B]">Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.</p>
 
                      <div class="flex gap-5">
-                        <button class="thriving-btn bg-green-200 px-4 py-2">Thrive</button>
-                        <button class="struggling-btn bg-red-200 px-4 py-2">Struggle</button>
+                        <button class="thriving-btn btn btn-outline btn-success btn-sm">Interview</button>
+                        <button class="struggling-btn btn btn-outline btn-error btn-sm ml-2">Rejected</button>
                      </div>
                 </div>
 
                 <!-- main part 2 -->
-                <div>
-                    <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">Delete</button>
+                <div class="absolute right-3">
+                    <button class="btn-delete text-gray-500 hover:text-red-500 "><i class="fa-solid fa-trash-can text-lg"></i></button>
                 </div>
             </div>
             <!-- card 6  -->
-             <div class="card flex justify-between border p-8">
+             <div class="card flex justify-between  p-8 bg-[#FFFFFF] rounded-2xl shadow transition-all duration-300 hover:translate-x-2 hover:-translate-y-2 hover:shadow-lg my-[20px] flex justify-between pr-5">
                 <!-- main part 1 -->
                 <div class="space-y-6">
                     <!-- part 1 -->
                     <div>
-                        <p class="plantName text-4xl">Plant Name 3</p>
-                        <p class="latinName">Latin Name</p>
+                        <p class="plantName font-semibold text-[17px]">MegaCorp Solutions</p>
+                        <p class="latinName text-[17px] text-[#64748B]">JavaScript Developer</p>
                     </div>
 
                     <!-- part 2 -->
                     <div class="flex gap-2">
-                        <p class="light bg-gray-200 px-5">Bright Indicate</p>
-                        <p class="water bg-gray-200 px-5">weekly</p>
+                        <p class="light text-[17px] text-[#64748B]">New York, NY • Full-time • $130,000 - $170,000</p>
+                        <p class="water"></p>
                     </div>
                     <!-- part 3 -->
-                     <p class="status">Not applicable</p>
-                     <p class="notes">New leaf unfurling by the east window.</p>
+                     <p class="farhana btn btn-soft btn-smbtn">Not Applied</p>
+                     <p class="notes text-[17px] text-[#64748B]">Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.</p>
 
                      <div class="flex gap-5">
-                        <button class="thriving-btn bg-green-200 px-4 py-2">Thrive</button>
-                        <button class="struggling-btn bg-red-200 px-4 py-2">Struggle</button>
+                        <button class="thriving-btn btn btn-outline btn-success btn-sm">Interview</button>
+                        <button class="struggling-btn btn btn-outline btn-error btn-sm ml-2">Rejected</button>
                      </div>
                 </div>
 
                 <!-- main part 2 -->
-                <div>
-                    <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">Delete</button>
+                <div class="absolute right-3">
+                    <button class="btn-delete text-gray-500 hover:text-red-500 "><i class="fa-solid fa-trash-can text-lg"></i></button>
                 </div>
             </div>
             <!-- card 7  -->
-             <div class="card flex justify-between border p-8">
+            <div class="card flex justify-between  p-8 bg-[#FFFFFF] rounded-2xl shadow transition-all duration-300 hover:translate-x-2 hover:-translate-y-2 hover:shadow-lg my-[20px] flex justify-between pr-5">
                 <!-- main part 1 -->
                 <div class="space-y-6">
                     <!-- part 1 -->
                     <div>
-                        <p class="plantName text-4xl">Plant Name 3</p>
-                        <p class="latinName">Latin Name</p>
+                        <p class="plantName font-semibold text-[17px]">StartupXYZ</p>
+                        <p class="latinName text-[17px] text-[#64748B]">Full Stack Engineer</p>
                     </div>
 
                     <!-- part 2 -->
                     <div class="flex gap-2">
-                        <p class="light bg-gray-200 px-5">Bright Indicate</p>
-                        <p class="water bg-gray-200 px-5">weekly</p>
+                        <p class="light text-[17px] text-[#64748B]">Remote • Full-time • $120,000 - $160,000</p>
+                        <p class="water"></p>
                     </div>
                     <!-- part 3 -->
-                     <p class="status">Not applicable</p>
-                     <p class="notes">New leaf unfurling by the east window.</p>
+                     <p class="farhana btn btn-soft btn-smbtn">Not Applied</p>
+                     <p class="notes text-[17px] text-[#64748B]">Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.</p>
 
                      <div class="flex gap-5">
-                        <button class="thriving-btn bg-green-200 px-4 py-2">Thrive</button>
-                        <button class="struggling-btn bg-red-200 px-4 py-2">Struggle</button>
+                        <button class="thriving-btn btn btn-outline btn-success btn-sm">Interview</button>
+                        <button class="struggling-btn btn btn-outline btn-error btn-sm ml-2">Rejected</button>
                      </div>
                 </div>
 
                 <!-- main part 2 -->
-                <div>
-                    <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">Delete</button>
+                <div class="absolute right-3">
+                    <button class="btn-delete text-gray-500 hover:text-red-500 "><i class="fa-solid fa-trash-can text-lg"></i></button>
                 </div>
             </div>
             <!-- card 8  -->
+             <div class="card flex justify-between  p-8 bg-[#FFFFFF] rounded-2xl shadow transition-all duration-300 hover:translate-x-2 hover:-translate-y-2 hover:shadow-lg my-[20px] flex justify-between pr-5">
+                <!-- main part 1 -->
+                <div class="space-y-6">
+                    <!-- part 1 -->
+                    <div>
+                        <p class="plantName font-semibold text-[17px]">TechCorp Industries </p>
+                        <p class="latinName text-[17px] text-[#64748B]">Senior Frontend Developer</p>
+                    </div>
+
+                    <!-- part 2 -->
+                    <div class="flex gap-2">
+                        <p class="light text-[17px] text-[#64748B]">Boston, MA • Full-time • $125,000 - $165,000</p>
+                        <p class="water"></p>
+                    </div>
+                    <!-- part 3 -->
+                     <p class="farhana btn btn-soft btn-smbtn">Not Applied</p>
+                     <p class="notes text-[17px] text-[#64748B]">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking</p>
+
+                     <div class="flex gap-5">
+                        <button class="thriving-btn btn btn-outline btn-success btn-sm">Interview</button>
+                        <button class="struggling-btn btn btn-outline btn-error btn-sm ml-2">Rejected</button>
+                     </div>
+                </div>
+
+                <!-- main part 2 -->
+                <div class="absolute right-3">
+                    <button class="btn-delete text-gray-500 hover:text-red-500  "><i class="fa-solid fa-trash-can text-lg"></i></button>
+                </div>
+            </div>
+           
              
 
         </section>
+         <!-- empty-state  -->
+              <div id="empty-state" class=" flex-col items-center justify-center py-20 gap-4 text-center">
+          <div class="text-7xl opacity-20">📄</div>
+          <p class="font-syne text-lg font-bold text-navy">No jobs available</p>
+          <p class="text-sm text-slate-400">Check back soon for new job opportunities</p>
+        </div>
     </main>
 
     <script src="./funtion-Dom.js"></script>

@@ -1,10 +1,13 @@
 let thrivingList = [];
 let strugglingList = []
-let currentStatus = 'all'
+let availablelist=[]
+let currentfarhana = 'all'
 
 let total = document.getElementById('total');
 let thrivingCount = document.getElementById('thrivingCount')
 let strugglingCount = document.getElementById('strugglingCount');
+let emptystate =document.getElementById('empty-state')
+
 
 const allFilterBtn = document.getElementById('all-filter-btn')
 const thrivingFilterBtn = document.getElementById('thriving-filter-btn')
@@ -15,13 +18,36 @@ const mainContainer = document.querySelector('main')
 const filterSection = document.getElementById('filtered-section')
 
 
-function calculateCount() {
-    total.innerText = allCardSection.children.length //3
-    thrivingCount.innerText = thrivingList.length
-    strugglingCount.innerText = strugglingList.length
-}
 
-calculateCount()
+   function calculateCount() {
+    // 1. Dashboard sonkhya update
+    total.innerText = allCardSection.querySelectorAll('.card').length;
+    thrivingCount.innerText = thrivingList.length;
+    strugglingCount.innerText = strugglingList.length;
+
+    // 2. Jobs count lekha update (8 Jobs lekha-ta update hobe)
+    const availableDisplay = document.getElementById('available');
+    let currentCount = 0;
+
+    if (currentfarhana === 'all-filter-btn') {
+        currentCount = allCardSection.querySelectorAll('.card').length;
+    } else if (currentfarhana === 'thriving-filter-btn') {
+        currentCount = thrivingList.length;
+    } else if (currentfarhana === 'struggling-filter-btn') {
+        currentCount = strugglingList.length;
+    }
+    
+    availableDisplay.innerText = `${currentCount} Jobs`;
+
+    // 3. EMPTY STATE LOGIC (0 job hole image dekhabe)
+    if (currentCount === 0) {
+        emptystate.classList.remove('hidden');
+        emptystate.classList.add('flex');
+    } else {
+        emptystate.classList.add('hidden');
+        emptystate.classList.remove('flex');
+    }
+}
 
 // step 1;
 function toggleStyle(id) {
@@ -38,9 +64,10 @@ function toggleStyle(id) {
     // console.log(id);
     const selected = document.getElementById(id)//this is the button that clicked for filter
 
-    currentStatus = id
-    console.log(currentStatus);
+    currentfarhana = id
+    // console.log(currentfarhana);
     // console.log(selected);
+   
 
     // adding black bg for current button
     selected.classList.remove('bg-gray-300', 'text-black')
@@ -50,8 +77,11 @@ function toggleStyle(id) {
     // show and hidden particular section
     // step 4 start
     // filtering while clicking the filter button (All, Thriving, Struggling)
+    
+    
     if (id == 'thriving-filter-btn') {
         allCardSection.classList.add('hidden');
+        
         filterSection.classList.remove('hidden')
         renderThriving()
     } else if (id == 'all-filter-btn') {
@@ -60,9 +90,21 @@ function toggleStyle(id) {
     } else if (id == 'struggling-filter-btn') {
         allCardSection.classList.add('hidden');
         filterSection.classList.remove('hidden')
+        renderStruggling()`  `
+    }
+    // ... uporer if-else logic gulo thakbe ...
+
+     else if (id == 'struggling-filter-btn') {
+        allCardSection.classList.add('hidden');
+        filterSection.classList.remove('hidden')
         renderStruggling()
     }
-}
+
+    // --- EI KHANE (Line 63 er dike) ---
+    calculateCount(); 
+
+} // <--- Function-er shesh bracket
+
 
 
 // step 2 delegation
@@ -73,16 +115,16 @@ mainContainer.addEventListener('click', function (event) {
         const plantName = parenNode.querySelector('.plantName').innerText
         const light = parenNode.querySelector('.light').innerText
         const water = parenNode.querySelector('.water').innerText
-        const status = parenNode.querySelector('.status').innerText
+        const farhana = parenNode.querySelector('.farhana').innerText
         const notes = parenNode.querySelector('.notes').innerText
 
-        parenNode.querySelector('.status').innerText = 'Interview'
+        parenNode.querySelector('.farhana').innerText = 'Interview'
 
         const cardInfo = {
             plantName,
             light,
             water,
-            status: 'Interview',
+            farhana: 'Interview',
             notes
         }
 
@@ -97,29 +139,46 @@ mainContainer.addEventListener('click', function (event) {
         strugglingList = strugglingList.filter(item => item.plantName != cardInfo.plantName)
 
         // after remove rerender the html
-        if (currentStatus == 'struggling-filter-btn') {
+        if (currentfarhana == 'struggling-filter-btn') {
             renderStruggling()
         }
+        const clickeliment=event.target
+        if(clickeliment.classList.contains('btn-delete')){
+            console.log('deletclick')
+        }
+        
 
          calculateCount()
 
+     
+    }
+    else if (event.target.closest('.btn-delete')) {
+        const card = event.target.closest('.card');
+        card.remove(); 
 
-    } else if (event.target.classList.contains('struggling-btn')) {
+        const name = card.querySelector('.plantName').innerText;
+        thrivingList = thrivingList.filter(item => item.plantName !== name);
+        strugglingList = strugglingList.filter(item => item.plantName !== name);
+
+        calculateCount();
+    }
+    
+    else if (event.target.classList.contains('struggling-btn')) {
         const parenNode = event.target.parentNode.parentNode;
 
         const plantName = parenNode.querySelector('.plantName').innerText
         const light = parenNode.querySelector('.light').innerText
         const water = parenNode.querySelector('.water').innerText
-        const status = parenNode.querySelector('.status').innerText
+        const farhana = parenNode.querySelector('.farhana').innerText
         const notes = parenNode.querySelector('.notes').innerText
 
-        parenNode.querySelector('.status').innerText = 'Rejected'
+        parenNode.querySelector('.farhana').innerText = 'Rejected'
 
         const cardInfo = {
             plantName,
             light,
             water,
-            status: 'Rejected',
+            farhana: 'Rejected',
             notes
         }
 
@@ -135,7 +194,7 @@ mainContainer.addEventListener('click', function (event) {
         // console.log(thrivingList);
 
         // after remove rerender the html
-        if (currentStatus == "thriving-filter-btn") {
+        if (currentfarhana == "thriving-filter-btn") {
             renderThriving();
         }
         calculateCount()
@@ -169,7 +228,7 @@ function renderThriving() {
                         <p class="water bg-gray-200 px-5">weekly</p>
                     </div>
                     <!-- part 3 -->
-                     <p class="status">${thrive.status}</p>
+                     <p class="farhana">${thrive.farhana}</p>
                      <p class="notes">New leaf unfurling by the east window.</p>
 
                      <div class="flex gap-5">
@@ -209,7 +268,7 @@ function renderStruggling() {
                         <p class="water bg-gray-200 px-5">weekly</p>
                     </div>
                     <!-- part 3 -->
-                     <p class="status">${struggle.status}</p>
+                     <p class="farhana">${struggle.farhana}</p>
                      <p class="notes">New leaf unfurling by the east window.</p>
 
                      <div class="flex gap-5">
