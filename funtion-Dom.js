@@ -20,12 +20,10 @@ const filterSection = document.getElementById('filtered-section')
 
 
    function calculateCount() {
-    // 1. Dashboard sonkhya update
     total.innerText = allCardSection.querySelectorAll('.card').length;
     thrivingCount.innerText = thrivingList.length;
     strugglingCount.innerText = strugglingList.length;
 
-    // 2. Jobs count lekha update (8 Jobs lekha-ta update hobe)
     const availableDisplay = document.getElementById('available');
     let currentCount = 0;
 
@@ -39,7 +37,6 @@ const filterSection = document.getElementById('filtered-section')
     
     availableDisplay.innerText = `${currentCount} Jobs`;
 
-    // 3. EMPTY STATE LOGIC (0 job hole image dekhabe)
     if (currentCount === 0) {
         emptystate.classList.remove('hidden');
         emptystate.classList.add('flex');
@@ -49,34 +46,25 @@ const filterSection = document.getElementById('filtered-section')
     }
 }
 
-// step 1;
 function toggleStyle(id) {
-    // adding gray bg for all
     allFilterBtn.classList.add('bg-gray-300', 'text-black')
     thrivingFilterBtn.classList.add('bg-gray-300', 'text-black')
     strugglingFilterBtn.classList.add('bg-gray-300', 'text-black')
 
-    // if any button has black then remove
     allFilterBtn.classList.remove('bg-black', 'text-white')
     thrivingFilterBtn.classList.remove('bg-black', 'text-white')
     strugglingFilterBtn.classList.remove('bg-black', 'text-white')
 
     // console.log(id);
-    const selected = document.getElementById(id)//this is the button that clicked for filter
+    const selected = document.getElementById(id)
 
     currentfarhana = id
     // console.log(currentfarhana);
     // console.log(selected);
    
 
-    // adding black bg for current button
     selected.classList.remove('bg-gray-300', 'text-black')
     selected.classList.add('bg-blue-700', 'text-white')
-    // step 1 finish
-
-    // show and hidden particular section
-    // step 4 start
-    // filtering while clicking the filter button (All, Thriving, Struggling)
     
     
     if (id == 'thriving-filter-btn') {
@@ -92,7 +80,6 @@ function toggleStyle(id) {
         filterSection.classList.remove('hidden')
         renderStruggling()`  `
     }
-    // ... uporer if-else logic gulo thakbe ...
 
      else if (id == 'struggling-filter-btn') {
         allCardSection.classList.add('hidden');
@@ -100,11 +87,9 @@ function toggleStyle(id) {
         renderStruggling()
     }
 
-    // --- EI KHANE (Line 63 er dike) ---
     calculateCount(); 
 
-} // <--- Function-er shesh bracket
-
+}
 
 
 // step 2 delegation
@@ -134,11 +119,9 @@ mainContainer.addEventListener('click', function (event) {
             thrivingList.push(cardInfo)
         }
 
-        // step 2 finish
-        // removing the plant from struggling list
+       
         strugglingList = strugglingList.filter(item => item.plantName != cardInfo.plantName)
 
-        // after remove rerender the html
         if (currentfarhana == 'struggling-filter-btn') {
             renderStruggling()
         }
@@ -188,12 +171,10 @@ mainContainer.addEventListener('click', function (event) {
             strugglingList.push(cardInfo)
         }
 
-        // removing the plant from thriving list
         thrivingList = thrivingList.filter(item => item.plantName != cardInfo.plantName)
 
         // console.log(thrivingList);
 
-        // after remove rerender the html
         if (currentfarhana == "thriving-filter-btn") {
             renderThriving();
         }
@@ -203,12 +184,9 @@ mainContainer.addEventListener('click', function (event) {
 
 })
 
-// step 3  html file create
 function renderThriving() {
-    // make the filterSection empty every time
     filterSection.innerHTML = ''
 
-    // crating innerHtml
     for (let thrive of thrivingList) {
         console.log(thrive);
 
@@ -247,9 +225,7 @@ function renderThriving() {
 }
 
 function renderStruggling() {
-    // make the filterSection empty every time
     filterSection.innerHTML = ''
-    // crating innerHtml
     for (let struggle of strugglingList) {
 
         let div = document.createElement('div');
